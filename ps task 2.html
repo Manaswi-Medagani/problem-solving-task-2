@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Main Program
+
+// Movie Ticket Booking System
+function bookMovieTicket(movie, seatType) {
+  const prices = {
+    Action: { Standard: 10, VIP: 20 },
+    Comedy: { Standard: 8, VIP: 15 },
+    Drama: { Standard: 6, VIP: 12 }
+  };
+
+  if (prices[movie] && prices[movie][seatType]) {
+    return `You selected ${movie} - ${seatType} Seat. Price: ${prices[movie][seatType]}rs`;
+  } else {
+    return "Invalid selection. Please choose a valid movie and seat type.";
+  }
+}
+
+// Discount Calculation System
+function calculateDiscount(category, product) {
+  const discountRates = {
+    Electronics: { Mobile: 5, Laptop: 10 },
+    Clothing: { Men: 15, Women: 20 },
+    Grocery: { Fruits: 5, Vegetables: 10 }
+  };
+
+  if (discountRates[category] && discountRates[category][product] !== undefined) {
+    return `The discount for ${product} in ${category} is ${discountRates[category][product]}%`;
+  } else {
+    return "Invalid selection. Please choose a valid category and product.";
+  }
+}
+
+// Travel Booking System
+function bookTravel(mode, category) {
+  const travelOptions = {
+    Flight: ["Economy", "Business"],
+    Train: ["Sleeper", "AC Class"],
+    Bus: ["Standard", "Luxury"]
+  };
+
+  if (travelOptions[mode] && travelOptions[mode].includes(category)) {
+    return `You selected ${mode} - ${category} class.`;
+  } else {
+    return "Invalid selection. Please choose a valid mode and category.";
+  }
+}
+
+// Main function to run the program
+function main() {
+  const choice = prompt("Choose a service: 1. Movie Ticket Booking 2. Discount Calculator 3. Travel Booking");
+
+  switch (choice) {
+    case "1":
+      // Movie Ticket Booking System
+      const movie = prompt("Choose a movie: Action, Comedy, Drama");
+      const seatType = prompt("Choose seat type: Standard, VIP");
+      alert(bookMovieTicket(movie, seatType));
+      break;
+
+    case "2":
+      // Discount Calculation System
+      const category = prompt("Choose a category: Electronics, Clothing, Grocery");
+      const product = prompt("Choose a product: (For Electronics: Mobile, Laptop) (For Clothing: Men, Women) (For Grocery: Fruits, Vegetables)");
+      alert(calculateDiscount(category, product));
+      break;
+
+    case "3":
+      // Travel Booking System
+      const mode = prompt("Choose mode of transport: Flight, Train, Bus");
+      const travelClass = prompt("Choose class: (For Flight: Economy, Business) (For Train: Sleeper, AC Class) (For Bus: Standard, Luxury)");
+      alert(bookTravel(mode, travelClass));
+      break;
+
+    default:
+      alert("Invalid choice. Please select a valid service.");
+  }
+}
+
+// Run the main function
+main();
+
+    </script>
+</body>
+</html>
